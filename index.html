@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORASYA</title>
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'BJ Cree', sans serif;
+    }
+
+   .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0b1f3a;
+  padding: 15px 30px;
+}
+
+/* LEFT SIDE */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: gold;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav-left img {
+  height: 35px;
+}
+
+/* RIGHT SIDE */
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.nav-right a:hover {
+  color: gold;
+}
+
+.hero-heading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;    
+  height: 450px;
+  min-height: 225px;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+  padding: 0; 
+}
+
+.hero-heading h1 {
+  font-family: 'El Messiri', sans-serif;
+  font-weight: 700;
+  font-size: 100px;
+  margin: 0; 
+  line-height: 1.0;
+  text-shadow: 0 0 2px rgba(255, 215, 255, 0.3), 
+               0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.hero-heading p {  
+  font-size: 22px;
+  opacity: 0.9;
+  margin: 0;
+  margin-bottom: 0;
+  line-height: 1.1;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.3), 
+               0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.hero-heading h1,
+.hero-heading p {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-heading::before {
+  content: "";
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.3);
+  z-index:1;
+}
+
+.bg-current, .bg-next {
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background-size: cover;
+  background-position: center;
+  z-index:0;
+  transition: opacity 1s ease-in-out;
+}
+
+.bg-current {
+  opacity: 1;
+}
+
+.bg-next {
+  opacity: 0;
+}
+
+     .bottom {
+      padding: 15px;
+      text-align: center;
+
+.explore-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 35px;
+  border: 2px solid gold;        
+  border-radius: 50px;            
+  color: white;                 
+  background-color: #0b1f3a;      
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: white;        
+  color: gold;                 
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+}
+
+    .product {
+      padding: 50px;
+      text-align: center;
+
+.product-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 50px;
+  border: 2px solid gold;
+  text-decoration: none;
+  color: gold;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 15px;
+}
+
+.product-btn:hover {
+  background-color: gold;
+  color: #0b1f3a;
+  box-shadow: 0 0 10px rgba(255,215,0,0.5);
+ }
+}
+
+    .verify {
+  margin-top: 50px; /* space from products */
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #0b1f3a, #132b52);
+  color: white;
+}
+
+.about-contact {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  padding: 80px 20px;
+  background: #f9f9f9;
+  flex-wrap: wrap;
+}
+
+.about-box,
+.contact-box {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.about-box h2,
+.contact-box h2 {
+  color: #0b1f3a;
+  margin-bottom: 15px;
+}
+
+.about-box p,
+.contact-box p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-row {
+  gap: 10px !important;
+}
+
+.product-text {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.product-text h3,
+.product-text p {
+  margin: 5px 0 !important;
+}
+
+@media (max-width: 768px) {
+  
+  .hero-heading {
+    height: 300px;           
+    padding: 50px 10px;     
+  }
+
+  .hero-heading h1 {
+    font-size: 48px;         
+    line-height: 1.2;        
+  }
+
+  .hero-heading p {
+    font-size: 16px;         
+    margin: 3px 0;           
+  }
+
+  .navbar {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .nav-right {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #0b1f3a;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    max-height: 0;          
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    z-index: 999;
+  }
+
+  .nav-right a {
+    display: block;
+    padding: 15px 0;
+    margin: 0;
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav-right.show {
+    max-height: 300px; 
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+.product-hero-set img {
+    float: none !important;
+    display: block;
+    margin: 10px auto;
+    width: 90%;
+  }
+
+  .product-info div {
+    float: none !important;
+    margin: 10px auto !important;
+    text-align: center !important;
+    max-width: 90%;
+  }
+
+  .hero-heading h1 {
+    font-size: 42px;
+  }
+
+  .about-contact {
+    flex-direction: column;
+  }
+
+  .product-hero-set img {
+    float: none !important;
+  }
+
+.product-hero-set img {
+  float: none !important;
+  display: block;
+  margin: 20px auto !important;
+  width: 90% !important;
+}
+
+.product-info div {
+  float: none !important;
+  margin: 20px auto !important;
+  text-align: center !important;
+  max-width: 90% !important;
+}
+
+  .product-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+  <!-- LEFT: LOGO -->
+  <div class="nav-left">
+    <img src="https://i.imgur.com/FbYfVty.png" alt="ORASYA Logo">
+  </div>
+
+  <!-- RIGHT: MENU -->
+  <div class="nav-right">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#verification">Verification</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+
+  <!-- HAMBURGER ICON -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+  <!-- HERO -->
+<div class="hero-heading" id="home">
+  <div class="bg-current"></div>
+  <div class="bg-next"></div>
+  <h1>ORASYA</h1>
+  <p>Shine in Style, Live in Sync</p>
+</div>
+
+<script>
+const images = [
+  "https://i.imgur.com/VXDSQUs.png",
+  "https://i.imgur.com/4m5Cpad.jpeg",
+  "https://i.imgur.com/btor3ln.jpeg",
+  "https://i.imgur.com/qdWy9JR.jpeg",
+  "https://i.imgur.com/GYdSRPs.jpeg",
+  "https://i.imgur.com/qiqMATG.jpeg"
+];
+
+let index = 0;
+const current = document.querySelector('.bg-current');
+const next = document.querySelector('.bg-next');
+
+// set initial background
+current.style.backgroundImage = `url('${images[index]}')`;
+index++;
+
+setInterval(() => {
+  // set next image
+  next.style.backgroundImage = `url('${images[index]}')`;
+  next.style.opacity = 1; // fade in
+
+  setTimeout(() => {
+    // swap layers
+    current.style.backgroundImage = next.style.backgroundImage;
+    next.style.opacity = 0; // reset for next fade
+  }, 1000); // matches transition duration
+
+  index = (index + 1) % images.length;
+}, 4000);
+</script>
+
+  <!-- ABOUT THE PRODUCT -->
+  <div class="bottom">
+  <h2>The Ultimate Smartwatch Set</h2>
+  <p>A complete blend of style and smart living.</p>
+  <a href="#products" class="explore-button">Explore The Set</a>
+</div>
+
+<!-- PRODUCT INFO -->
+  <div class="product" id="products">
+    <h2>About the Product</h2>
+    <p>The ultimate blend of elegance and style. Includes a smartwatch and a complete 5-piece jewelry set.</p>
+  </div>
+
+<div class="product-hero-set">
+  <img src="https://i.imgur.com/42flGlz.jpeg" 
+     alt="Complete ORASYA Luxury Set" 
+     style="width: 1500px; max-width: 90%; height: auto; display: block; margin: 0 auto;">
+</div>
+
+<div class="product-hero-set" style="margin-top: 50px;">
+  <img src="https://i.imgur.com/xm26YZA.jpeg" 
+       alt="Smartwatch" 
+       style="float: left; margin-left: 75px; margin-right: 30px; width: 500px; max-width: 90%; height: auto;">
+</div>
+
+<div class="product-info" style="margin-top: 200px;">
+<div style="float: left; max-width: 400px; margin-right: 10px;">
+    <h3 style="font-size: 30px; color: black; margin-bottom: 15px;">Smartwatch</h3>
+    <p style="font-size: 20px; line-height: 1.5; color: black;">
+      Elegant smartwatch with advanced features for modern lifestyle.
+    </p>
+  </div>
+</div>
+
+<div class="product-hero-set" style="margin-top: 550px; overflow: hidden;">
+  <img src="https://i.imgur.com/bK1b2PP.jpeg" 
+       alt="Wristwatch" 
+       style="float: right; margin-right: 70px; width: 500px; max-width: 90%; height: auto;">
+
+<div class="product-info" style="margin-top: 150px; overflow: hidden;">
+<div style="max-width: 350px; margin-left: 550px; text-align: right;">
+    <h4 style="font-size: 30px; color: black; margin-bottom: 15px;">Wristwatch</h4>
+    <p style="font-size: 20px; line-height: 1.5; color: black;">
+      Elegant wristwatch for sophisticated and elegant look.
+    </p>
+  </div>
+</div>
+
+<div class="product-hero-set" style="margin-top: 200px; overflow: hidden;">
+  <img src="https://i.imgur.com/WcPw27m.jpeg" 
+       alt="Necklace" 
+       style="float: left; margin-left: 75px; margin-right: 30px; width: 500px; max-width: 90%; height: auto;">
+
+<div class="product-info" style="margin-top: 140px; overflow: hidden;">
+<div style="float: left; max-width: 400px; margin-right: 150px;">
+    <h3 style="font-size: 30px; color: black; margin-bottom: 15px;">Necklace</h3>
+    <p style="font-size: 20px; line-height: 1.5; color: black;">
+      Gold-plated necklace that complements your smartwatch and style
+    </p>
+  </div>
+</div>
+
+<div class="product-hero-set" style="margin-top: 220px; overflow: hidden;">
+  <img src="https://i.imgur.com/bK1b2PP.jpeg" 
+       alt="Bracelet" 
+       style="float: right; margin-right: 70px; width: 500px; max-width: 90%; height: auto;">
+
+<div class="product-info" style="margin-top: 150px; overflow: hidden;">
+<div style="max-width: 375px; margin-left: 525px; text-align: right;">
+    <h4 style="font-size: 30px; color: black; margin-bottom: 15px;">Bracelet</h4>
+    <p style="font-size: 20px; line-height: 1.5; color: black;">
+      Luxury bracelet with matching design for the full set.
+    </p>
+  </div>
+</div>
+
+<div class="product-hero-set" style="margin-top: 200px; overflow: hidden;">
+  <img src="https://i.imgur.com/WcPw27m.jpeg" 
+       alt="Earrings" 
+       style="float: left; margin-left: 75px; margin-right: 30px; width: 500px; max-width: 90%; height: auto;">
+
+<div class="product-info" style="margin-top: 140px; overflow: hidden;">
+<div style="float: left; max-width: 400px; margin-right: 150px;">
+    <h3 style="font-size: 30px; color: black; margin-bottom: 15px;">Earrings</h3>
+    <p style="font-size: 20px; line-height: 1.5; color: black;">
+      Elegant earrings to complete the sophisticated look.
+    </p>
+  </div>
+</div>
+
+<div class="product-hero-set" style="margin-top: 220px; overflow: hidden;">
+  <img src="https://i.imgur.com/bK1b2PP.jpeg" 
+       alt="Ring" 
+       style="float: right; margin-right: 70px; width: 500px; max-width: 90%; height: auto;">
+
+<div class="product-info" style="margin-top: 150px; overflow: hidden;">
+<div style="max-width: 400px; margin-left: 510px; text-align: right;">
+    <h4 style="font-size: 30px; color: black; margin-bottom: 15px;">Ring</h4>
+    <p style="font-size: 20px; line-height: 1.5; color: black;">
+      Gold ring with subtle sparkle, finishing the luxurious set.
+    </p>
+  </div>
+</div>
+
+<!-- VERIFY -->
+
+<div style="clear: both;"></div>
+
+<div class="verify" id="verification">
+  <h2>Product Authentication</h2>
+  <p style="opacity: 0.8; margin-bottom: 10px;">
+    Enter your unique ORASYA code to verify authenticity
+  </p>
+
+  <div class="verify-box">
+    <input type="text" id="codeInput" placeholder="Enter your code">
+    <button onclick="verifyCode()">Verify</button>
+  </div>
+
+  <p id="result" class="verify-result"></p>
+</div>
+
+<!-- ABOUT US -->
+
+<div class="about-contact" id="about">
+
+  <!-- ABOUT US -->
+  <div class="about-box" id="about us">
+    <h2>About Us</h2>
+    <p>
+      ORASYA is a luxury lifestyle brand that blends timeless elegance with modern innovation.
+      Our mission is to bring style, confidence, and smart living into one complete experience.
+    </p>
+  </div>
+
+  <!-- CONTACT US -->
+  <div class="contact-box" id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: orasya.official@gmail.com<br>
+  Phone: (+63) 991-143-341 <br>
+</p>
+
+  <h3>Follow Us</h3>
+  <p>
+    Instagram: OrasyaOfficial_PH <br>
+    TikTok: Orasya.Official_PH <br>
+    Shopee: Orasya.Official_SH_PH <br>
+  </p>
+
+</div>
+
+  <script>
+function toggleMenu() {
+  const nav = document.querySelector('.nav-right');
+  nav.classList.toggle('show');
+}
+</script>
+
+<script>
+const validCodes = [
+  "OR-3A-BA26",
+];
+
+function verifyCode() {
+  const input = document.getElementById("codeInput").value.trim();
+  const result = document.getElementById("result");
+
+  if (input === "") {
+    result.style.color = "orange";
+    result.textContent = "⚠️ Please enter a code.";
+    return;
+  }
+
+  if (validCodes.includes(input)) {
+    result.style.color = "gold";
+    result.textContent = "Authentic Orasya Product";
+  } else {
+    result.style.color = "red";
+    result.textContent = "Invalid Code";
+  }
+}
+</script>
+
+</body>
+</html>
